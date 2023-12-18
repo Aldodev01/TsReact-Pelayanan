@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "5152f612-09e8-4b96-ae4c-f418e8078101",
+		"name": "Pelayanan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28981078"
+	},
+	"item": [
+		{
+			"name": "Pelayanan",
+			"item": [
+				{
+					"name": "Get Pelayanans",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = JSON.parse(responseBody);",
+									"pm.environment.set('pelayananId', jsonData.data[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}pelayanan"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pelayanan Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}pelayanan/{{pelayananId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Pelayanan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = JSON.parse(responseBody);",
+									"pm.environment.set('pelayananId', jsonData.data.id;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "bajigur",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "asede kontol sama lo semua ngentot ngentot",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"value": "asede",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/aldodevv/Downloads/4.jpeg"
+								}
+							]
+						},
+						"url": "{{URL}}pelayanan"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Pelayanan",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "pepek",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "fuck you bro",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"value": "aselole",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/aldodevv/Downloads/wp6.jpeg"
+								}
+							]
+						},
+						"url": "{{URL}}pelayanan/{{pelayananId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pelayanan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{URL}}pelayanan/{{pelayananId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ulasan",
+			"item": [
+				{
+					"name": "Get Ulasans",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = JSON.parse(responseBody);",
+									"pm.environment.set('ulasanId', jsonData.data[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}ulasan"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ulasan Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}ulasan/{{ulasanId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Ulasan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = JSON.parse(responseBody);",
+									"pm.environment.set('ulasanId', jsonData.data.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rate\": 90,\n  \"pelayananId\": \"clopq5mxc0000ue1bbpnzw7d7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}ulasan"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Ulasan",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rate\": 90,\n    \"pelayananId\": \"clopq5mxc0000ue1bbpnzw7d7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}ulasan/clopq7x4i0002ue1bwza4t5qg"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pelayanan Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{URL}}ulasan/clopiaomw0002ueebeufae66k"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Summary",
+			"item": [
+				{
+					"name": "Get Summaries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}summaries"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

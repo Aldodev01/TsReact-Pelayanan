@@ -1,0 +1,66 @@
+
+###
+GET http://localhost:5001/pelayanan
+
+###
+GET http://localhost:5001/pelayanan/clopgfq1o0001ueehw8ct7pbv
+
+###
+POST  http://localhost:5001/pelayanan
+Content-Type: application/json
+
+{
+  "name": "aldodevv",
+  "email": "aldodevox@gmail.com",
+  "avatar": "https://picsum.photos/seed/999/400"
+}
+
+###
+PATCH   http://localhost:5001/pelayanan/883b9103-f5ed-4d29-8b75-56536bfe4998
+Content-Type: application/json
+
+{
+  "name": "asik",
+  "email": "aldodevox@gmail.com",
+  "avatar": "https://picsum.photos/seed/999/300"
+}
+
+###
+DELETE    http://localhost:5001/pelayanan/clopge3sc0000ueeh4q12jn1k
+Content-Type: application/json
+
+
+
+
+###
+GET http://localhost:5001/ulasan
+
+###
+GET http://localhost:5001/ulasan/c107877a-b45a-4f9b-b949-fbe815afc71f
+
+###
+POST  http://localhost:5001/ulasan
+Content-Type: application/json
+
+{
+  "rate": 60,
+  "pelayananId": "clopgfq1o0001ueehw8ct7pbv"
+}
+
+###
+PATCH   http://localhost:5001/ulasan/883b9103-f5ed-4d29-8b75-56536bfe4998
+Content-Type: application/json
+
+{
+  "name": "asik",
+  "email": "aldodevox@gmail.com",
+  "avatar": "https://picsum.photos/seed/999/300"
+}
+
+###
+DELETE    http://localhost:5001/ulasan/c107877a-b45a-4f9b-b949-fbe815afc71f
+Content-Type: application/json
+
+
+###
+GET http://localhost:5001/summary

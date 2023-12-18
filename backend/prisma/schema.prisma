@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Ulasan {
+  id          String         @id @default(cuid())
+  rate        Int            @default(0)
+  category    UlasanCategory
+  date        DateTime       @default(now())
+  pelayanan   Pelayanan      @relation(fields: [pelayananId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  pelayananId String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model Pelayanan {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  photo       String
+  Ulasan      Ulasan[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum UlasanCategory {
+  SangatSuka
+  Suka
+  Biasa
+  TidakSuka
+}
