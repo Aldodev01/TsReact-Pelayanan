@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/uranus.png";
 
 interface SidebarProps {
@@ -65,7 +65,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <NavLink to="/admin">
+        <Link to="/admin">
           <div className="flex flex-col w-[200px] gap-6 items-center justify-center ">
             <div className="h-[150px] w-[150px]">
               <img
@@ -76,7 +76,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </div>
             <h1 className=" text-white text-4xl font-bold">Pelayanan</h1>
           </div>
-        </NavLink>
+        </Link>
 
         <button
           ref={trigger}
@@ -114,7 +114,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             <ul className="mb-6 flex flex-col gap-1.5">
               {/* <!-- Menu Item Dashboard --> */}
               <React.Fragment>
-                <NavLink
+                <Link
                   to="#"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     (pathname === "/admin" || pathname.includes("dashboard")) &&
@@ -151,7 +151,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     />
                   </svg>
                   Statistik
-                </NavLink>
+                </Link>
                 {/* <!-- Dropdown Menu Start --> */}
                 <div
                   className={`translate transform overflow-hidden ${
@@ -160,26 +160,23 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 >
                   <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
                     <li>
-                      <NavLink
-                        to="/auth/signin"
-                        className={({ isActive }) =>
-                          "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white " +
-                          (isActive && "!text-white")
+                      <Link
+                        to="/admin/pelayanan"
+                        className={
+                          "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white "
                         }
                       >
-                        Sign In
-                      </NavLink>
+                        Pelayanan
+                      </Link>
                     </li>
                     <li>
-                      <NavLink
-                        to="/auth/signup"
-                        className={({ isActive }) =>
-                          "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white " +
-                          (isActive && "!text-white")
-                        }
+                      <Link
+                        to="/admin/ulasan"
+                        className={
+                          "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white "}
                       >
-                        Sign Up
-                      </NavLink>
+                        Ulasan
+                      </Link>
                     </li>
                   </ul>
                 </div>

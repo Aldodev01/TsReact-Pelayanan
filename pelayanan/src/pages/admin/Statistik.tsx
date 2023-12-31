@@ -6,7 +6,7 @@ import useSWR from "swr";
 
 const Statistik = () => {
   const fetcher = async () => {
-    const response = await axios.get("http://localhost:5001/summaries");
+    const response = await axios.get("http://localhost:8080/summaries");
     console.log("data", response.data);
     return response.data;
   };

@@ -6,7 +6,7 @@ import useSWR, { useSWRConfig } from "swr";
 const ProductList = () => {
   const { mutate } = useSWRConfig();
   const fetcher = async () => {
-    const response = await axios.get("http://localhost:5001/products");
+    const response = await axios.get("http://localhost:8080/products");
     console.log("data", response.data);
     return response.data;
   };
@@ -15,7 +15,7 @@ const ProductList = () => {
   if (!data) return <h2>Loading...</h2>;
 
   const deleteProduct = async (productId) => {
-    await axios.delete(`http://localhost:5001/products/${productId}`);
+    await axios.delete(`http://localhost:8080/products/${productId}`);
     mutate("products");
   };
 

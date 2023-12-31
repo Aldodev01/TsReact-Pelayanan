@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Navbar from "../../components/Navbar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import Footer from "../../components/Footer";
 
 const Ulasan = () => {
   const [range, setRange] = useState("0");
   const { id } = useParams();
   const [disabled, setDisabled] = useState(false);
+  
   const fetcher = async () => {
-    const response = await axios.get(`http://localhost:5001/pelayanan/${id}`);
+    const response = await axios.get(`http://localhost:8080/pelayanan/${id}`);
     return response.data;
+  };
+  const { data } = useSWR("ulasan", fetcher);
+
+  const sendResponse = async () => {
+    await axios.post("http://localhost:8080/ulasan/", {
+      rate: Number(range),
+      pelayananId: id
+    }).then((res: unknown) => {
+      console.log(res, "res");
+      setDisabled(!disabled);
+      mutate('ulasan')
+    })
+    return
   };
 
   function getRange(isi: string) {
@@ -27,13 +41,13 @@ const Ulasan = () => {
     }
   }
 
-  const handleKirim = () => {
-    alert("Survey Terkirim, Have a Nice Day :)");
-    setDisabled(!disabled);
-  };
-  const { data } = useSWR("products", fetcher);
+  // const handleKirim = () => {
+  //   alert("Survey Terkirim, Have a Nice Day :)");
+  //   setDisabled(!disabled);
+  // };
   if (!data) return <h2>Loading...</h2>;
   console.log(data?.data);
+
 
   return (
     <main className="w-full h-full flex flex-col items-center">
@@ -74,7 +88,7 @@ const Ulasan = () => {
                     placeholder="Default textarea"
                     className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   />
-                  <button
+                  {!disabled  && <button
                     disabled={
                       disabled ? true : Number(range) < 1 ? true : false
                     }
@@ -83,10 +97,11 @@ const Ulasan = () => {
                         ? "bg-gray text-black"
                         : "bg-primary text-white"
                     }`}
-                    onClick={handleKirim}
+                    onClick={sendResponse}
                   >
                     Kirim
-                  </button>
+                  </button>}
+                  
                 </div>
               </div>
             </div>
@@ -99,7 +114,7 @@ const Ulasan = () => {
           // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
           data?.data?.Ulasan.map((e: any) => {
             return (
-              <div className="mb-5 w-full gap-4 flex align-center ">
+              <div key={e.id} className="mb-5 w-full gap-4 flex align-center ">
                 <div className="flex-shrink-0">
                   <a href="#" className="relative block">
                     <img

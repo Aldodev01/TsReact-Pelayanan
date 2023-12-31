@@ -1,9 +1,22 @@
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const sx = window.localStorage.getItem('sx')
+  const px = window.localStorage.getItem('px')
+  
+  useEffect(() => {
+    if(sx !== "@dm1n" && px !== "p@ssw0rd"){
+      setTimeout(() => {
+        window.location.href = "/signin"
+      }, 300);
+    }
+    return () => {
+      
+    };
+  }, [sx, px])
 
   return (
     <>

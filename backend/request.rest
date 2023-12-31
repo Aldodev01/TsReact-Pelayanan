@@ -1,14 +1,13 @@
 
 ###
-GET http://localhost:5001/pelayanan
+GET http://localhost:8080/pelayanan
 
 ###
-GET http://localhost:5001/pelayanan/clopgfq1o0001ueehw8ct7pbv
+GET http://localhost:8080/pelayanan/clopgfq1o0001ueehw8ct7pbv
 
 ###
-POST  http://localhost:5001/pelayanan
+POST  http://localhost:8080/pelayanan
 Content-Type: application/json
-
 {
   "name": "aldodevv",
   "email": "aldodevox@gmail.com",
@@ -16,7 +15,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH   http://localhost:5001/pelayanan/883b9103-f5ed-4d29-8b75-56536bfe4998
+PATCH   http://localhost:8080/pelayanan/883b9103-f5ed-4d29-8b75-56536bfe4998
 Content-Type: application/json
 
 {
@@ -26,20 +25,20 @@ Content-Type: application/json
 }
 
 ###
-DELETE    http://localhost:5001/pelayanan/clopge3sc0000ueeh4q12jn1k
+DELETE    http://localhost:8080/pelayanan/clopge3sc0000ueeh4q12jn1k
 Content-Type: application/json
 
 
 
 
 ###
-GET http://localhost:5001/ulasan
+GET http://localhost:8080/ulasan
 
 ###
-GET http://localhost:5001/ulasan/c107877a-b45a-4f9b-b949-fbe815afc71f
+GET http://localhost:8080/ulasan/c107877a-b45a-4f9b-b949-fbe815afc71f
 
 ###
-POST  http://localhost:5001/ulasan
+POST  http://localhost:8080/ulasan
 Content-Type: application/json
 
 {
@@ -48,7 +47,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH   http://localhost:5001/ulasan/883b9103-f5ed-4d29-8b75-56536bfe4998
+PATCH   http://localhost:8080/ulasan/883b9103-f5ed-4d29-8b75-56536bfe4998
 Content-Type: application/json
 
 {
@@ -58,9 +57,9 @@ Content-Type: application/json
 }
 
 ###
-DELETE    http://localhost:5001/ulasan/c107877a-b45a-4f9b-b949-fbe815afc71f
+DELETE    http://localhost:8080/ulasan/c107877a-b45a-4f9b-b949-fbe815afc71f
 Content-Type: application/json
 
 
 ###
-GET http://localhost:5001/summary
+GET http://localhost:8080/summary
