@@ -11,8 +11,14 @@ Pastikan Anda sudah menginstall Node Js, dan install Nodemon secara global
 3. Jalankan "npx prisma db push" (optional)
 4. Jalankan "nodemon index"
 
-#### Tutorial Lainnya:
+#### Tutorial Frontend:
+Pastikan Anda sudah menginstall Node Js
+1. Jalankan "npm install -g global"
+2. Jalankan "yarn install"
+3. Jalankan "yarn dev"
+4. Buka link tersebut di browser
 
+#### Tutorial Lainnya:
 Jika Anda memiliki tutorial untuk bagian lain, Anda bisa menambahkan bagian ini dan langkah-langkah yang sesuai.
 
 Jangan lupa untuk menambahkan detail langkah-langkah dan penjelasan yang dibutuhkan sesuai dengan panduan yang Anda inginkan.
